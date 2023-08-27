@@ -6,5 +6,4 @@ class z_numbers:
             return False
         return True
 
-
 print(z_numbers.is_devideable(100, 0))
