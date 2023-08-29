@@ -17,6 +17,9 @@ class z_numbers:
         if b == 0:
             return a
         return self.gcd(self, b, a % b)
-
-print(z_numbers.is_devideable(100, 0))
-print(z_numbers.gcd(z_numbers,18888,124444))
+    
+    def lcd(self, a, b):
+        return a * b / self.gcd(self, a, b)
+    
+    def is_modular(self, a, b, m):
+        return self.is_devideable(a - b, m)
