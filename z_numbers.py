@@ -1,3 +1,4 @@
+import math
 class z_numbers:
 
     def is_devideable(n, d):
@@ -23,3 +24,9 @@ class z_numbers:
     
     def is_modular(self, a, b, m):
         return self.is_devideable(a - b, m)
+    
+    def is_prime(self, a):
+        for i in range(2, int(math.sqrt(a)+1)):
+            if self.is_devideable(a, i):
+                return False
+        return True
