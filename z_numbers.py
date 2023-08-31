@@ -40,5 +40,13 @@ class z_numbers:
                 result.append(i)
         return result
     
+    def diviors(self, a):
+        result = []
+        for i in range(1, a+1):
+            if self.is_devideable(a, i):
+                result.append(i)
+        return result
+    
+print(z_numbers.diviors(z_numbers,30))
+    
 
-print(z_numbers.primes(z_numbers,1,199))
