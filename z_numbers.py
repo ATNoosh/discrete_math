@@ -26,7 +26,19 @@ class z_numbers:
         return self.is_devideable(a - b, m)
     
     def is_prime(self, a):
+        if a == 1:
+            return False
         for i in range(2, int(math.sqrt(a)+1)):
             if self.is_devideable(a, i):
                 return False
         return True
+    
+    def primes(self, a, b):
+        result = []
+        for i in range(min(a, b), max(a, b)):
+            if self.is_prime(self, i):
+                result.append(i)
+        return result
+    
+
+print(z_numbers.primes(z_numbers,1,199))
