@@ -9,10 +9,8 @@ class z_numbers:
         return True
     
     def gcd(self, a, b):
-        if b == 1:
-            return a
-        if a == 1:
-            return b
+        if a ==1 or b == 1:
+            return a * b
         if a == 0:
             return b
         if b == 0:
@@ -47,6 +45,34 @@ class z_numbers:
                 result.append(i)
         return result
     
-print(z_numbers.diviors(z_numbers,30))
+    def prime_products(self, a):
+        result = []
+        p = 2
+        while 1 == 1:
+            print(a)
+            if a == 1:
+                break
+            if a % p == 0:
+                a = a / p
+                added_before = 0
+                for m in result:
+                    if m[0] == p:
+                        m[1] += 1
+                        added_before = 1
+                if added_before == 0:
+                    result.append([p, 1])
+            else:
+                p = self.next_prime(self, p)
+        return result
+                     
+    
+    def next_prime(self, a):
+        n = a + 1
+        while 1 == 1:
+            if self.is_prime(self, n):
+                return n
+            n = n + 1
+    
+print(z_numbers.prime_products(z_numbers,96))
     
 
