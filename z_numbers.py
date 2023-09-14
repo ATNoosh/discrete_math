@@ -41,7 +41,43 @@ class z_numbers:
                 b_counter += 1
                 continue
         
-        return result   
+        return result  
+
+
+    def lcd_by_products(self, a: int, b: int)->list:
+        a_products = self.prime_products(self, a)
+        b_products = self.prime_products(self, b)
+        result = []
+        a_counter = 0
+        b_counter = 0
+        while a_counter < len(a_products) and b_counter < len(b_products):
+            if(a_products[a_counter][0] == b_products[b_counter][0]):
+                result.append([a_products[a_counter][0], max(a_products[a_counter][1], b_products[b_counter][1])])
+                a_counter += 1
+                b_counter += 1
+                continue
+            
+            if(a_products[a_counter][0] < b_products[b_counter][0]):
+                result.append(a_products[a_counter])
+                a_counter += 1
+                continue
+                
+            if(a_products[a_counter][0] > b_products[b_counter][0]):
+                result.append(b_products[b_counter])
+                b_counter += 1
+                continue
+
+        print(a_counter)
+        print(b_counter)
+        while a_counter < len(a_products):
+            result.append(a_products[a_counter])
+            a_counter += 1
+            
+        while b_counter < len(b_products):
+            result.append(b_products[b_counter])
+            b_counter += 1
+        
+        return result  
     
     def is_modular(self, a: int, b: int, m: int)->bool:
         return self.is_devideable(a - b, m)
@@ -100,11 +136,11 @@ class z_numbers:
             result *= math.pow(p[0], p[1])
         return result
     
-a = z_numbers.prime_products(z_numbers,600)
-b = z_numbers.prime_products(z_numbers,180)
+a = z_numbers.prime_products(z_numbers,60980)
+b = z_numbers.prime_products(z_numbers,14760)
 print(a)
 print(b)
-c = z_numbers.gcd_by_products(z_numbers,180,600)
+c = z_numbers.lcd_by_products(z_numbers,14760,60980)
 print(c)
 print(z_numbers.products_to_num(z_numbers,c))
     
